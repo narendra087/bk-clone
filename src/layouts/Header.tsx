@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Link, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Link, Image, Text, Popover, PopoverTrigger, PopoverContent, PopoverBody, Button, PopoverArrow, Badge } from '@chakra-ui/react'
 import { Link as ReactLink } from 'react-router-dom'
 
 import logo from '../images/bk-logo.png'
@@ -32,9 +32,39 @@ const Header = () => {
         <Link as={ReactLink} to='/login' color='text.white' display={{ base: 'none', lg: 'block' }} fontSize='xl' lineHeight={1}>
           LOGIN
         </Link>
-        <Flex bg='primary.main' h={{base:'50px' , lg:'76px'}} w={{base:'52px' , lg:'59px'}} position='absolute' right={{base: '0', lg: '-100px'}} top='0' justifyContent='center' alignItems='center'>
-          <Image src={cart} w='30px' h='30px'></Image>
-        </Flex>
+        <Popover trigger='hover' placement='bottom-end'>
+          <PopoverTrigger>
+            <Flex cursor='pointer' bg='primary.main' h={{base:'50px' , lg:'76px'}} w={{base:'52px' , lg:'59px'}} position='absolute' right={{base: '0', lg: '-100px'}} top='0' justifyContent='center' alignItems='center'>
+              <Image src={cart} w='30px' h='30px'></Image>
+              <Badge
+                bg='red'
+                color='white'
+                borderRadius='100%'
+                position='absolute'
+                top='13px'
+                right='10px'
+                w='21px'
+                h='20px'
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                fontFamily='Flase-Sans'
+                fontSize='14px'
+              >
+                0
+              </Badge>
+            </Flex>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverBody>
+              <Box p='17px 8px' maxW='430px' w='100%'>
+                <Text variant='sans' color='black'>Your cart is empty.</Text>
+                <Button as={ReactLink} to='/menus' variant='primary' mt='25px' w='100%'>Order Now</Button>
+              </Box>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
       </Flex>
     </Box>
   )
