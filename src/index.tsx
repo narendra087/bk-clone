@@ -9,6 +9,13 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { BrowserRouter as Router } from "react-router-dom";
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: 'background.paper',
+      }
+    }
+  },
   colors: {
     primary: {
       main: '#ED7801',
@@ -16,7 +23,7 @@ const theme = extendTheme({
       200: '#F1BC87',
     },
     background: {
-      paper: '#FFF',
+      paper: '#F9F4F2',
       dark: '#2D2D2D',
       secondary: '#404040'
     },

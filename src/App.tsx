@@ -1,9 +1,11 @@
-import { Box, Flex, Image, Text, Link } from '@chakra-ui/react';
 import React from 'react';
+import { Box, Flex, Image, Text, Link } from '@chakra-ui/react';
 
 import logo from './images/bk-logo.png'
 import cart from './images/cart.png'
 import { Link as ReactLink } from 'react-router-dom';
+
+import CarouselComponent from './components/CarouselComponent';
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
           <Flex justifyContent='space-between' alignItems='center' maxW='960px' m='0 auto' position='relative'>
             
             <Link as={ReactLink} to='/' position='absolute' left='-125px' top='10px'>
-              <Image src={logo} w='90px' h='90px'></Image>
+              <Image src={logo} w='90px' h='90px' zIndex={1000} position='relative'></Image>
             </Link>
             
             <Flex alignItems='center'>
@@ -40,9 +42,9 @@ function App() {
           </Flex>
         </Box>
       </header>
-      <section>
-        
-      </section>
+      <Box>
+        <CarouselComponent />
+      </Box>
     </div>
   );
 }
