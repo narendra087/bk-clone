@@ -46,7 +46,7 @@ const LoginPage = () => {
                 type='tel'
                 name='phone'
                 fontFamily='Flame-Sans'
-                placeholder='Phone number'
+                placeholder='821 3456 7890 (Example)'
                 _placeholder={{color:'text.placeholder'}}
               />
             </InputGroup>
