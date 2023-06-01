@@ -25,15 +25,17 @@ const theme = extendTheme({
       main: '#ED7801',
       100: '#FAAF18',
       200: '#F1BC87',
+      300: '#FBE6D6',
     },
     background: {
       paper: '#F9F4F2',
       dark: '#2D2D2D',
-      secondary: '#404040'
+      secondary: '#404040',
     },
     text: {
       main: '#8B542F',
       main2: '#ED7801',
+      main3: '#502314',
       subtitle: '#FAAF18',
       subtitle2: '#404040',
       secondary: '#919191',

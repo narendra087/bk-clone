@@ -13,13 +13,13 @@ const LoginPage = () => {
   }
 
   return (
-    <Flex pt='25px' w={{base:'100%', lg:'960px'}} m='0 auto' justifyContent='center' flexDirection='column'>
+    <Flex pt='25px' w={{base:'100%', lg:'960px'}} m='0 auto' justifyContent='center'>
       <Box
         borderRadius='10px'
         boxShadow='0px 0px 7px 0px rgba(0,0,0,0.2)'
         maxW='450px'
         w='100%'
-        m='0 auto'
+        m='0 15px'
         bg='white'
       >
         <Box

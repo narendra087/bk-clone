@@ -7,6 +7,8 @@ import Header from './layouts/Header';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import MenuPage from './pages/MenuPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -18,10 +20,12 @@ function App() {
       <Box minH={{ base: 'calc(100vh - 50px)', lg: 'calc(100vh - 76px)' }}>
         <Routes>
           <Route path='/' element={<HomePage />} />
-        </Routes>
-        <Routes>
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/menus/*' element={<MenuPage />} />
+          
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        
       </Box>
       
       <footer>

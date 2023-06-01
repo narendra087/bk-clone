@@ -10,6 +10,8 @@ import image2 from '../images/image-carousel-2.jpg'
 import image3 from '../images/image-carousel-3.jpg'
 import image4 from '../images/image-carousel-4.jpg'
 import image5 from '../images/image-carousel-5.jpg'
+import image6 from '../images/image-carousel-6.jpg'
+import image7 from '../images/image-carousel-7.jpg'
 
 const CarouselComponent = () => {
   return (
@@ -51,6 +53,8 @@ const CarouselComponent = () => {
       <Image src={image3} width='100%'></Image>
       <Image src={image4} width='100%'></Image>
       <Image src={image5} width='100%'></Image>
+      <Image src={image6} width='100%'></Image>
+      <Image src={image7} width='100%'></Image>
     </Carousel>
   )
 }
