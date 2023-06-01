@@ -13,8 +13,12 @@ const theme = extendTheme({
     global: {
       body: {
         bg: 'background.paper',
+        fontFamily: '"Flame-Regular", sans-serif'
       }
     }
+  },
+  breakpoints: {
+    lg: '1024px',
   },
   colors: {
     primary: {
@@ -42,6 +46,21 @@ const theme = extendTheme({
     Link: {
       baseStyle: {
         '&:hover': { textDecoration: 'none' },
+      }
+    },
+    Button: {
+      variants: {
+        primary: {
+          background: 'primary.main',
+          color: 'text.white',
+        }
+      },
+    },
+    Text: {
+      variants: {
+        bold: {
+          fontFamily: '"Flame-Bold", sans-serif'
+        }
       }
     }
   }
