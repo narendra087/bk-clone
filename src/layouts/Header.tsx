@@ -7,7 +7,7 @@ import cart from '../images/cart.png'
 
 const Header = () => {
   return (
-    <Box h={{base: '50px', lg:'76px'}} w='100%' bg='background.dark'>
+    <Box h={{base: '50px', lg:'76px'}} w='100%' bg='background.dark' boxShadow='0px 0px 10px 1px rgba(0,0,0,0.5)'>
       <Flex justifyContent={{base: 'center', lg:'space-between'}} alignItems='center' w={{ base: '100%', lg: '960px' }} m='0 auto' position='relative'>
         
         <Link as={ReactLink} to='/' position={{ base: 'relative', lg:'absolute'}} left={{base: 'unset', lg: '-125px'}} top={{base: '5px', lg:'10px'}}>

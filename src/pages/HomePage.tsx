@@ -42,7 +42,7 @@ const HomePage = () => {
             arrayItem.map(item => (
               <GridItem
                 as={ReactLink}
-                to={'/' + item.slug}
+                to={'/menus/' + item.slug}
                 bg='#FFF'
                 key={item.id}
                 boxShadow='2px 2px 15px -4px #6b6b6b'

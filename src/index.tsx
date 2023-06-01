@@ -33,9 +33,12 @@ const theme = extendTheme({
     },
     text: {
       main: '#8B542F',
+      main2: '#ED7801',
       subtitle: '#FAAF18',
+      subtitle2: '#404040',
       secondary: '#919191',
       white: '#FFF',
+      placeholder: '#B7B7B7',
     }
   },
   components: {
@@ -49,7 +52,11 @@ const theme = extendTheme({
         primary: {
           background: 'primary.main',
           color: 'text.white',
-        }
+        },
+        secondary: {
+          background: 'primary.100',
+          color: 'text.white',
+        },
       },
     },
     Text: {
