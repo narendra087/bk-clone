@@ -11,3 +11,10 @@
       url('./fonts//Flame-Bold.woff') format('woff');
   font-display: 'swap';
 }
+
+@font-face {
+  font-family: 'Flame-Sans';
+  src: local('Flame-Sans'),
+      url('./fonts//FlameSans-Regular.woff') format('woff');
+  font-display: 'swap';
+}

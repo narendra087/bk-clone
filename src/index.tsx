@@ -38,10 +38,6 @@ const theme = extendTheme({
       white: '#FFF',
     }
   },
-  fonts: {
-    regular: `"Flame-Regular", sans-serif`,
-    bold: `"Flame-Bold", sans-serif`,
-  },
   components: {
     Link: {
       baseStyle: {
@@ -60,6 +56,9 @@ const theme = extendTheme({
       variants: {
         bold: {
           fontFamily: '"Flame-Bold", sans-serif'
+        },
+        sans: {
+          fontFamily: '"Flame-Sans", sans-serif'
         }
       }
     }
