@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './font.css';
 import App from './App';
 
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
@@ -16,11 +17,25 @@ const theme = extendTheme({
     },
     background: {
       paper: '#FFF',
+      dark: '#2D2D2D',
       secondary: '#404040'
     },
     text: {
       main: '#8B542F',
-      secondary: '#919191'
+      subtitle: '#FAAF18',
+      secondary: '#919191',
+      white: '#FFF',
+    }
+  },
+  fonts: {
+    regular: `"Flame-Regular", sans-serif`,
+    bold: `"Flame-Bold", sans-serif`,
+  },
+  components: {
+    Link: {
+      baseStyle: {
+        '&:hover': { textDecoration: 'none' },
+      }
     }
   }
 })
