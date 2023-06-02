@@ -24,6 +24,8 @@ import searchGrey from '../images/search-grey.png'
 import close from '../images/close.png'
 import back from '../images/back.png'
 
+import paketList from '../mocks/paket';
+
 interface FilterProps {
   isDetail?: boolean
 }
@@ -44,6 +46,8 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
   ]
   
   const [isSearching, setIsSearching] = useState(false)
+  const [slugname, setSlugname] = useState<string>()
+  const [activeName, setActiveName] = useState<string>()
   
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { pathname } = useLocation();
@@ -51,6 +55,8 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
   const params = useParams()
   
   useEffect(() => {
+    setIsSearching(false)
+    getName()
     if (isOpen) {
       onClose()
     }
@@ -58,12 +64,23 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
   }, [pathname])
   
   const getName = () => {
-    const slug = params["*"] || 'kings-chicken-rasa-baru'
+    let slug = ''
+    if (isDetail) {
+      slug = params['slug'] || ''
+      const indexProduct = paketList.findIndex((paket) => paket.slug === slug)
+      if (indexProduct !== -1) {
+        slug = paketList[indexProduct].category
+      }
+    } else {
+      slug = params['*'] || 'kings-chicken-rasa-baru'
+    }
+
+    setSlugname(slug)
     const index = arrLinks.findIndex((link) => link.slug === slug)
     if (index !== -1) {
-      return arrLinks[index].name
+      setActiveName(arrLinks[index].name)
     } else {
-      return 'Select Menu'
+      setActiveName('Select Menu')
     }
   }
   
@@ -80,12 +97,13 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
           {
             arrLinks.map((link, index) => (
               <Flex
+                key={index}
                 as={ReactLink}
                 to={'/menus/'+link.slug}
                 p='7px 20px 9px'
                 w='100%'
                 minH='56px'
-                bg={(pathname === '/menus' && index === 0) || (pathname === '/menus/' + link.slug) ? 'primary.100' : 'primary.300'}
+                bg={(slugname === link.slug) ? 'primary.100' : 'primary.300'}
                 borderRadius='10px'
                 alignItems='center'
               >
@@ -126,7 +144,7 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
               borderColor: '#fff transparent transparent transparent',
             }}
           >
-            <Text onClick={onOpen} textOverflow='ellipsis' overflow='hidden' w='100%' whiteSpace='nowrap' textAlign='left'>{ getName() }</Text>
+            <Text onClick={onOpen} textOverflow='ellipsis' overflow='hidden' w='100%' whiteSpace='nowrap' textAlign='left'>{ activeName }</Text>
           </Button> ) : (
           <InputGroup bg='white' borderRadius='10px' boxShadow='1px 1px 8px -2px rgba(107,107,107,0.3)'>
             <Input fontFamily='Flame-Sans' placeholder='Search menu...' _placeholder={{color:'text.placeholder'}} />
@@ -145,12 +163,13 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
             {
               arrLinks.map((link, index) => (
                 <Flex
+                  key={index}
                   as={ReactLink}
                   to={'/menus/'+link.slug}
                   p='5px 12px'
                   w='100%'
                   minH='48px'
-                  bg={(pathname === '/menus' && index === 0) || (pathname === '/menus/' + link.slug) ? 'primary.100' : 'primary.300'}
+                  bg={(slugname === link.slug) ? 'primary.100' : 'primary.300'}
                   borderRadius='10px'
                   alignItems='center'
                 >
