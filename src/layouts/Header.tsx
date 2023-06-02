@@ -46,8 +46,18 @@ const Header = () => {
             </Link>
           </Flex>
           
-          <Link as={ReactLink} to='/login' color='text.white' display={{ base: 'none', lg: 'block' }} fontSize='xl' lineHeight={1}>
-            LOGIN
+          <Link
+            as={ReactLink}
+            to='/login'
+            color='text.white'
+            fontSize='xl'
+            lineHeight={1}
+            position={{base:'absolute', lg:'relative'}}
+            right={{base:'70px', lg: 'unset'}}
+            top={{base:'13px', lg: 'unset'}}
+            textTransform={{lg:'uppercase'}}
+          >
+            Login
           </Link>
           <Popover trigger='hover' placement='bottom-end'>
             <PopoverTrigger>
