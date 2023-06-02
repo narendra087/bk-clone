@@ -1,19 +1,28 @@
 import React, { useState } from 'react'
 import { Box, Flex, Text, Button, Input, InputGroup, InputLeftElement, Textarea } from '@chakra-ui/react'
 
-import { NavLink as ReactLink, useLocation } from 'react-router-dom';
+import { NavLink as ReactLink } from 'react-router-dom';
 
 import StepComponent from '../../components/StepComponent';
+import MapComponent from '../../components/MapComponent';
+
+import { LocationType } from '../../types/global';
 
 const DeliveryPage = () => {
-  const [guestName, setGuestName] = useState('')
+  const [guestName, setGuestName] = useState<string>('')
   const [guestPhone, setGuestPhone] = useState()
+  const [location, setLocation] = useState<LocationType>()
+  const [address, setAddress] = useState<string>()
   
   const handleChange = (e: any) => {
     const rgx = /^[0-9\b]+$/;
     if (e.target.value === '' || rgx.test(e.target.value)) {
       setGuestPhone(e.target.value)
     }
+  }
+  
+  const handleChangePosition = (location: LocationType) => {
+    setLocation(location)
   }
   
   return (
@@ -81,7 +90,7 @@ const DeliveryPage = () => {
             <Text variant='sans' color='text.subtitle2' mt='20px'>1. Set Lokasi Pengantaran di Peta</Text>
             <Text variant='sans' color='text.subtitle2' fontSize='14px'>Pastikan pin lokasi sudah sesuai dengan lokasi pengantaran</Text>
             <Box mt='20px' bg='text.placeholder' height='300px'>
-              
+              <MapComponent onChange={handleChangePosition} />
             </Box>
           </Box>
           
@@ -98,10 +107,11 @@ const DeliveryPage = () => {
               _placeholder={{color:'text.placeholder'}}
               mt='20px'
               bg='#EFEFEF4D'
+              onChange={(e) => setAddress(e.target.value)}
             >
-                
+                {address}
             </Textarea>
-            <Button variant='primary' w='100%' mt='20px'>Continue</Button>
+            <Button as={ReactLink} to='/cart/payment' variant='primary' w='100%' mt='20px'>Continue</Button>
           </Box>
         </Box>
       </Flex>

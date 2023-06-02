@@ -18,3 +18,8 @@ export interface GuestType {
   location: any
   address: string
 }
+
+export interface LocationType {
+  lat: number
+  lng: number
+}
