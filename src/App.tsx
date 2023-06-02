@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import RegisterPage from './pages/RegisterPage';
 import MenuPage from './pages/MenuPage';
+import ProductPage from './pages/ProductPage';
 
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/reset-password' element={<ResetPasswordPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/menus/*' element={<MenuPage />} />
+          <Route path='/product/:slug' element={<ProductPage />} />
           
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
