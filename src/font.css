@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Flame-Regular';
+  src: local('Flame-Regular'),
+      url('./fonts//Flame-Regular.woff') format('woff');
+  font-display: 'swap';
+}
+
+@font-face {
+  font-family: 'Flame-Bold';
+  src: local('Flame-Bold'),
+      url('./fonts//Flame-Bold.woff') format('woff');
+  font-display: 'swap';
+}
+
+@font-face {
+  font-family: 'Flame-Sans';
+  src: local('Flame-Sans'),
+      url('./fonts//FlameSans-Regular.woff') format('woff');
+  font-display: 'swap';
+}
