@@ -12,6 +12,10 @@ import RegisterPage from './pages/RegisterPage';
 import MenuPage from './pages/MenuPage';
 import ProductPage from './pages/ProductPage';
 
+import PreviewPage from './pages/Cart/PreviewPage';
+import DeliveryPage from './pages/Cart/DeliveryPage';
+import PaymentPage from './pages/Cart/PaymentPage';
+
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -29,6 +33,10 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/menus/*' element={<MenuPage />} />
           <Route path='/product/:slug' element={<ProductPage />} />
+          
+          <Route path='/cart/preview' element={<PreviewPage />} />
+          <Route path='/cart/delivery' element={<DeliveryPage />} />
+          <Route path='/cart/payment' element={<PaymentPage />} />
           
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

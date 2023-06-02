@@ -72,7 +72,7 @@ const ProductPage = () => {
           <Box
             borderRight={{lg:'1px solid #E0E0E0'}}
             p='35px 20px'
-            w={{base:'100vw',lg:'73%'}}
+            w={{base:'100%',lg:'73%'}}
             textAlign='center'
           >
             <Text fontSize='3xl' color='text.main'>{productData?.name}</Text>

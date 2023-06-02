@@ -61,6 +61,10 @@ const theme = extendTheme({
           background: 'primary.main',
           color: 'text.white',
         },
+        'primary-outline': {
+          background: 'text.white',
+          color: 'primary.main',
+        },
         secondary: {
           background: 'primary.100',
           color: 'text.white',

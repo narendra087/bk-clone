@@ -133,18 +133,16 @@ const Header = () => {
                   { cartData?.length ? (
                     <>
                       { cartData.map((cart:CartType) => (
-                        <>
-                          <Flex justifyContent='space-between' gap='15px' mb='15px' pb='15px' borderBottom='1px solid #B7B7B7'>
-                            <Flex gap='10px'>
-                              <Image src={`/paket/${cart.image}.jpg`} w='100px' objectFit='cover'></Image>
-                              <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>{ cart.name }</Text>
-                            </Flex>
-                            <Flex gap='20px'>
-                              <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>x{ cart.quantity }</Text>
-                              <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>{ priceFormatter(cart.price) }</Text>
-                            </Flex>
+                        <Flex justifyContent='space-between' gap='15px' mb='15px' pb='15px' borderBottom='1px solid #B7B7B7' key={cart.slug}>
+                          <Flex gap='10px'>
+                            <Image src={`/paket/${cart.image}.jpg`} w='100px' objectFit='cover'></Image>
+                            <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>{ cart.name }</Text>
                           </Flex>
-                        </>
+                          <Flex gap='20px'>
+                            <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>x{ cart.quantity }</Text>
+                            <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>{ priceFormatter(cart.price) }</Text>
+                          </Flex>
+                        </Flex>
                       ))}
                       <Flex justifyContent='space-between' alignItems='center'>
                         <Text variant='sans' color='text.subtitle2'>SUBTOTAL</Text>

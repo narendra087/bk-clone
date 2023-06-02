@@ -1,5 +1,5 @@
 function priceFormatter(value: number) {
-  if (!value) return '-'
+  if (!value) return 'Rp. -'
   
   const stringValue = value.toString()
 
