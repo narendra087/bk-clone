@@ -4,6 +4,10 @@ import './index.css';
 import './font.css';
 import App from './App';
 
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './redux/store';
+
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -79,10 +83,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <ChakraProvider theme={theme}>
+            <App />
+          </ChakraProvider>
+        </Router>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
