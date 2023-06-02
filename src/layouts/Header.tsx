@@ -101,7 +101,7 @@ const Header = () => {
             <PopoverTrigger>
               <Flex
                 as={ReactLink}
-                to={cartData?.length ? '/cart' : '/menus'}
+                to={cartData?.length ? '/cart/preview' : '/menus'}
                 cursor='pointer'bg='primary.main' h={{base:'50px' , lg:'76px'}} w={{base:'52px' , lg:'59px'}}
                 position='absolute' right={{base: '0', lg: '-100px'}} top='0'
                 justifyContent='center' alignItems='center'
@@ -156,7 +156,7 @@ const Header = () => {
                   )}
                   <Button
                     as={ReactLink}
-                    to={cartData?.length ? '/cart' : '/menus'}
+                    to={cartData?.length ? '/cart/preview' : '/menus'}
                     variant='primary' mt='25px' w='100%'
                   >
                     {cartData?.length ? 'Go To Cart' : 'Order Now'}

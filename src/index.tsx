@@ -30,6 +30,7 @@ const theme = extendTheme({
       100: '#FAAF18',
       200: '#F1BC87',
       300: '#FBE6D6',
+      400: '#FCEBD9'
     },
     background: {
       paper: '#F9F4F2',
@@ -45,6 +46,7 @@ const theme = extendTheme({
       secondary: '#919191',
       white: '#FFF',
       placeholder: '#B7B7B7',
+      inactive: '#C5A997'
     }
   },
   components: {
@@ -62,6 +64,10 @@ const theme = extendTheme({
         secondary: {
           background: 'primary.100',
           color: 'text.white',
+        },
+        inactive: {
+          background: 'primary.400',
+          color: 'text.inactive',
         },
       },
     },
