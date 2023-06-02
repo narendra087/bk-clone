@@ -101,7 +101,12 @@ const MenuFilterComponent = ({ isDetail = false }:FilterProps) => {
         <Image src={close} w='25px' h='25px' objectFit='cover'></Image>
       </Box>
       <Flex gap={{base: '15px', sm:'20px'}} display={{base:'flex', lg:'none'}}>
-        <Button onClick={() => setIsSearching(!isSearching)} variant='primary' minW={{base: '50px', sm:'120px'}} ><Image src={isSearching ? back : search} w='16px' h='16px' /></Button>
+        { !isDetail &&
+          <Button onClick={() => setIsSearching(!isSearching)} variant='primary' minW={{base: '50px', sm:'120px'}} >
+            <Image src={isSearching ? back : search} w='16px' h='16px' />
+          </Button>
+        }
+        
         { !isSearching ? (
           <Button
             variant='secondary'
