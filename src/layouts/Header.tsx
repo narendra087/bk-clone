@@ -1,5 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Flex, Link, Image, Text, Popover, PopoverTrigger, PopoverContent, PopoverBody, Button, PopoverArrow, Badge, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Stack, Divider } from '@chakra-ui/react'
+import { Box,
+  Flex,
+  Link,
+  Image,
+  Text,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  Button,
+  PopoverArrow,
+  Badge,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerBody,
+  Stack,
+  Divider,
+} from '@chakra-ui/react'
 import { Link as ReactLink, useLocation } from 'react-router-dom'
 
 import priceFormatter from '../utils/priceFormatter'
