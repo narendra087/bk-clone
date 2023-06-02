@@ -3,7 +3,7 @@ import { Box, Flex, Input, InputGroup, InputLeftElement, Stack, Text, Button, Li
 import { Link as ReactLink } from 'react-router-dom';
 
 const LoginPage = () => {
-  const [phone, setPhone] = useState()
+  const [phone, setPhone] = useState('')
   
   const handleChange = (e: any) => {
     const rgx = /^[0-9\b]+$/;

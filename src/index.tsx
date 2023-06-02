@@ -4,6 +4,10 @@ import './index.css';
 import './font.css';
 import App from './App';
 
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './redux/store';
+
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -26,6 +30,7 @@ const theme = extendTheme({
       100: '#FAAF18',
       200: '#F1BC87',
       300: '#FBE6D6',
+      400: '#FCEBD9'
     },
     background: {
       paper: '#F9F4F2',
@@ -41,6 +46,7 @@ const theme = extendTheme({
       secondary: '#919191',
       white: '#FFF',
       placeholder: '#B7B7B7',
+      inactive: '#C5A997'
     }
   },
   components: {
@@ -55,9 +61,17 @@ const theme = extendTheme({
           background: 'primary.main',
           color: 'text.white',
         },
+        'primary-outline': {
+          background: 'text.white',
+          color: 'primary.main',
+        },
         secondary: {
           background: 'primary.100',
           color: 'text.white',
+        },
+        inactive: {
+          background: 'primary.400',
+          color: 'text.inactive',
         },
       },
     },
@@ -79,10 +93,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <ChakraProvider theme={theme}>
+            <App />
+          </ChakraProvider>
+        </Router>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );

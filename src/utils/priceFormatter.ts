@@ -1,5 +1,5 @@
-function priceFormatter(value: number) {
-  if (!value) return '-'
+function priceFormatter(value: number, prefix: boolean = true) {
+  if (!value) return '0'
   
   const stringValue = value.toString()
 
@@ -15,7 +15,7 @@ function priceFormatter(value: number) {
   }
 
   rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah
-  return 'Rp. ' + rupiah
+  return (prefix ? 'Rp. ' : '') + rupiah
 }
 
 export default priceFormatter
