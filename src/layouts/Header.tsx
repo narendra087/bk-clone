@@ -97,7 +97,8 @@ const Header = () => {
           >
             Login
           </Link>
-          <Popover isLazy trigger='hover' placement='bottom-end'>
+          
+          { pathname.indexOf('/cart') === -1 && <Popover isLazy trigger='hover' placement='bottom-end'>
             <PopoverTrigger>
               <Flex
                 as={ReactLink}
@@ -162,7 +163,8 @@ const Header = () => {
                 </Box>
               </PopoverBody>
             </PopoverContent>
-          </Popover>
+          </Popover> }
+          
         </Flex>
       </Box>
       
