@@ -8,15 +8,7 @@ import search from '../images/search.png'
 
 import MenuFilterComponent from '../components/MenuFilterComponent';
 
-import paketList from '../mocks/paket';
-
-interface PaketType {
-  name: string
-  slug: string
-  image: string
-  price: string
-  category: string
-}
+import paketList, { PaketType } from '../mocks/paket';
 
 const MenuPage = () => {
   const [arrPaket, setArrPaket] = useState<PaketType[]>([])
