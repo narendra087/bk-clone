@@ -55,6 +55,7 @@ const PreviewPage = () => {
   return (
     <Box width={{base: '100%', lg: '960px'}} m='40px auto' p={{base: '0 15px', sm: '0 20px', lg: '0'}}>
       <StepComponent />
+      
       <Flex
         boxShadow='0px 0px 10px 1px rgba(0,0,0,0.1)'
         borderRadius='10px'
@@ -112,7 +113,6 @@ const PreviewPage = () => {
         <Box
           p='25px 30px'
           w={{base:'100%',lg:'30%'}}
-          textAlign='left'
         >
           <Flex flexDirection={{lg:'column'}}>
             <Text fontSize='13px' variant='sans' color='text.subtitle2'>Order Subtotal*</Text>

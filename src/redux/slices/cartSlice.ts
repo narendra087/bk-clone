@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { CartType } from "../../types/global";
+import { CartType, GuestType } from "../../types/global";
 
 interface SliceState {
   cartData: CartType[]
   notes: string
+  guest: GuestType
 }
 
 const initialState:SliceState = {
   cartData: [],
   notes: '',
+  guest: {
+    name: '',
+    phone: undefined,
+    location: undefined,
+    address: '',
+  }
 }
 
 export const cartSlice = createSlice({
@@ -35,7 +42,10 @@ export const cartSlice = createSlice({
     },
     addNotes: (state, action) => {
       state.notes = action.payload
-    }
+    },
+    addQuest: (state, action) => {
+      state.guest = action.payload
+    },
   }
 })
 

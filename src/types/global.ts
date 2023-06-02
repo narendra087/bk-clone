@@ -11,3 +11,10 @@ export interface PaketType {
 export interface CartType extends PaketType {
   quantity: number
 }
+
+export interface GuestType {
+  name: string
+  phone?: number
+  location: any
+  address: string
+}
