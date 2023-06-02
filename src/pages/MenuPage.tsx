@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink as ReactLink, useLocation, useParams } from 'react-router-dom';
-import { Box, Flex, Input, InputGroup, InputRightAddon, Image, Grid, GridItem, Text, Stack } from '@chakra-ui/react';
+import { NavLink as ReactLink, useParams } from 'react-router-dom';
+import { Box, Flex, Image, Grid, GridItem, Text } from '@chakra-ui/react';
 
 import priceFormatter from '../utils/priceFormatter';
 
-import search from '../images/search.png'
-
 import MenuFilterComponent from '../components/MenuFilterComponent';
 
-import paketList, { PaketType } from '../mocks/paket';
+import paketList from '../mocks/paket';
+import { PaketType } from '../types/global';
 
 const MenuPage = () => {
   const [arrPaket, setArrPaket] = useState<PaketType[]>([])
   
-  const { pathname } = useLocation();
   const params = useParams()
   
   useEffect(() => {

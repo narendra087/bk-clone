@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink as ReactLink, useLocation, useParams } from 'react-router-dom';
-import { Box, Flex, Input, InputGroup, InputRightAddon, Image, Grid, GridItem, Text, Stack, useNumberInput, HStack, Button } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
+import { Box, Flex, Input, Image, Text, useNumberInput, HStack, Button } from '@chakra-ui/react';
+
+import { useDispatch } from 'react-redux'
+import { addCart } from '../redux/slices/cartSlice';
 
 import priceFormatter from '../utils/priceFormatter';
 
 import MenuFilterComponent from '../components/MenuFilterComponent';
 
-import paketList, { PaketType } from '../mocks/paket';
+import paketList from '../mocks/paket';
+import { PaketType } from '../types/global';
 
 import minus from '../images/minus.png'
 import plus from '../images/plus.png'
@@ -14,6 +18,7 @@ import plus from '../images/plus.png'
 const ProductPage = () => {
   const [productData, setProductData] = useState<PaketType>()
   const params = useParams()
+  const dispatch = useDispatch()
   
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
@@ -26,7 +31,7 @@ const ProductPage = () => {
 
   const inc = getIncrementButtonProps()
   const dec = getDecrementButtonProps()
-  const input = getInputProps()
+  const quantity = getInputProps()
   
   useEffect(() => {
     getProductData()
@@ -41,6 +46,16 @@ const ProductPage = () => {
     if (indexProduct !== -1) {
       setProductData(paketList[indexProduct])
     }
+  }
+  
+  const handleAddProduct = () => {
+    const tempProduct = {
+      ...productData,
+      quantity: Number(quantity.value)
+    }
+    
+    console.log(tempProduct)
+    dispatch(addCart(tempProduct))
   }
   
   return (
@@ -85,11 +100,11 @@ const ProductPage = () => {
               <Text fontSize='11px' variant='sans' m='10px 0 25px' textTransform='uppercase'>Add On</Text>
               <HStack>
                 <Button {...dec} color='primary.100' p='0' ><Image src={minus} w='12px' h='12px' /></Button>
-                <Input {...input} textAlign='center' />
+                <Input {...quantity} textAlign='center' />
                 <Button {...inc} color='primary.100' p='0' ><Image src={plus} w='12px' h='12px' /></Button>
               </HStack>
               
-              <Button mt='20px' w='100%' variant='primary'>Add To Cart</Button>
+              <Button onClick={() => handleAddProduct()} mt='20px' w='100%' variant='primary'>Add To Cart</Button>
             </Box>
           </Flex>
         </Flex>

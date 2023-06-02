@@ -1,15 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Flex, Link, Image, Text, Popover, PopoverTrigger, PopoverContent, PopoverBody, Button, PopoverArrow, Badge, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Stack, Divider } from '@chakra-ui/react'
 import { Link as ReactLink, useLocation } from 'react-router-dom'
+
+import priceFormatter from '../utils/priceFormatter'
+
+import { useSelector } from 'react-redux'
 
 import logo from '../images/bk-logo.png'
 import cart from '../images/cart.png'
 import close from '../images/close.png'
 import burgerStrip from '../images/burger-strip.png'
 
+import { CartType } from '../types/global'
+
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { pathname } = useLocation()
+  
+  const [ totalPrice, setTotalPrice ] = useState(0)
+  
+  const cartData = useSelector((state:any) => state.cart.cartData)
   
   useEffect(() => {
     if (isOpen) {
@@ -17,6 +27,15 @@ const Header = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
+  
+  useEffect(() => {
+    let price = 0
+    cartData.forEach((cart:CartType) => {
+      price += cart.quantity * cart.price
+    })
+    
+    setTotalPrice(price)
+  }, [cartData])
   
   return (
     <>
@@ -59,9 +78,15 @@ const Header = () => {
           >
             Login
           </Link>
-          <Popover trigger='hover' placement='bottom-end'>
+          <Popover isLazy trigger='hover' placement='bottom-end'>
             <PopoverTrigger>
-              <Flex cursor='pointer' bg='primary.main' h={{base:'50px' , lg:'76px'}} w={{base:'52px' , lg:'59px'}} position='absolute' right={{base: '0', lg: '-100px'}} top='0' justifyContent='center' alignItems='center'>
+              <Flex
+                as={ReactLink}
+                to={cartData?.length ? '/cart' : '/menus'}
+                cursor='pointer'bg='primary.main' h={{base:'50px' , lg:'76px'}} w={{base:'52px' , lg:'59px'}}
+                position='absolute' right={{base: '0', lg: '-100px'}} top='0'
+                justifyContent='center' alignItems='center'
+              >
                 <Image src={cart} w='30px' h='30px'></Image>
                 <Badge
                   bg='red'
@@ -78,16 +103,45 @@ const Header = () => {
                   fontFamily='Flase-Sans'
                   fontSize='14px'
                 >
-                  0
+                  { cartData?.length || 0 }
                 </Badge>
               </Flex>
             </PopoverTrigger>
-            <PopoverContent>
+            <PopoverContent w='430px'>
               <PopoverArrow />
-              <PopoverBody>
+              <PopoverBody display={{base:'none', lg:'block'}}>
                 <Box p='17px 8px' maxW='430px' w='100%'>
-                  <Text variant='sans' color='black'>Your cart is empty.</Text>
-                  <Button as={ReactLink} to='/menus' variant='primary' mt='25px' w='100%'>Order Now</Button>
+                  { cartData?.length ? (
+                    <>
+                      { cartData.map((cart:CartType) => (
+                        <>
+                          <Flex justifyContent='space-between' gap='15px' mb='15px' pb='15px' borderBottom='1px solid #B7B7B7'>
+                            <Flex gap='10px'>
+                              <Image src={`/paket/${cart.image}.jpg`} w='100px' objectFit='cover'></Image>
+                              <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>{ cart.name }</Text>
+                            </Flex>
+                            <Flex gap='20px'>
+                              <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>x{ cart.quantity }</Text>
+                              <Text variant={'sans'} color='text.subtitle2' fontSize='13px'>{ priceFormatter(cart.price) }</Text>
+                            </Flex>
+                          </Flex>
+                        </>
+                      ))}
+                      <Flex justifyContent='space-between' alignItems='center'>
+                        <Text variant='sans' color='text.subtitle2'>SUBTOTAL</Text>
+                        <Text variant='sans' color='text.subtitle2' fontSize='23px'>{ priceFormatter(totalPrice) }</Text>
+                      </Flex>
+                    </>
+                  ) : (
+                    <Text variant='sans' color='black'>Your cart is empty.</Text>
+                  )}
+                  <Button
+                    as={ReactLink}
+                    to={cartData?.length ? '/cart' : '/menus'}
+                    variant='primary' mt='25px' w='100%'
+                  >
+                    {cartData?.length ? 'Go To Cart' : 'Order Now'}
+                  </Button>
                 </Box>
               </PopoverBody>
             </PopoverContent>

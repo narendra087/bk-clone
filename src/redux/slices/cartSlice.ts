@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { PaketType } from "../../mocks/paket";
+import { CartType } from "../../types/global";
 
 interface SliceState {
-  cart: PaketType[]
+  cartData: CartType[]
 }
 
 const initialState:SliceState = {
-  cart: [],
+  cartData: [],
 }
 
 export const cartSlice = createSlice({
-  name: 'user',
+  name: 'cart',
   initialState,
   reducers: {
     addCart: (state, action) => {
-      state.cart.push(action?.payload)
+      state.cartData.push(action?.payload)
     },
     removeCart: (state, action) => {
       console.log(action.payload)
