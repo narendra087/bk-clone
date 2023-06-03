@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Flex, Input, InputGroup, InputLeftElement, Stack, Text, Button, Image } from '@chakra-ui/react'
 
 import register from '../images/register.jpg'
 
 const RegisterPage = () => {
   const [phone, setPhone] = useState()
+  
+  useEffect(() => {
+    document.title = 'Register | BK'
+  }, [])
   
   const handleChange = (e: any) => {
     const rgx = /^[0-9\b]+$/;

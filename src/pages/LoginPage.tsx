@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Flex, Input, InputGroup, InputLeftElement, Stack, Text, Button, Link } from '@chakra-ui/react'
 import { Link as ReactLink } from 'react-router-dom';
 
 const LoginPage = () => {
   const [phone, setPhone] = useState('')
+  
+  useEffect(() => {
+    document.title = 'Login | BK'
+  }, [])
   
   const handleChange = (e: any) => {
     const rgx = /^[0-9\b]+$/;
