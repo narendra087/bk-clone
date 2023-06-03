@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Flex, Input, Stack, Text, Button } from '@chakra-ui/react'
 
 const ResetPasswordPage = () => {
+  
+  useEffect(() => {
+    document.title = 'Reset Password | BK'
+  }, [])
+  
   return (
     <Flex pt='25px' w={{base:'100%', lg:'960px'}} m='0 auto' justifyContent='center'>
       <Box

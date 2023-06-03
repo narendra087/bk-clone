@@ -9,6 +9,8 @@ import MenuFilterComponent from '../components/MenuFilterComponent';
 import paketList from '../mocks/paket';
 import { PaketType } from '../types/global';
 
+import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
+
 const MenuPage = () => {
   const [arrPaket, setArrPaket] = useState<PaketType[]>([])
   
@@ -19,10 +21,17 @@ const MenuPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params])
   
-  
   const handleList = () => {
     const filter = params["*"] || 'kings-chicken-rasa-baru'
     const tempArr = paketList.filter((paket:PaketType) => paket.category === filter)
+    
+    if (params["*"]) {
+      const title = capitalizeFirstLetter(params['*']?.split('-').join(' '))
+      console.log(title)
+      document.title = title + ' | BK'
+    } else {
+      document.title = 'Menu | BK'
+    }
     
     setArrPaket(tempArr)
   }

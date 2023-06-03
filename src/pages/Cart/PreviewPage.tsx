@@ -34,6 +34,7 @@ const PreviewPage = () => {
   const dispatch = useDispatch()
   
   useEffect(() => {
+    document.title = 'Preview Cart | BK'
     setNotes(notesData)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

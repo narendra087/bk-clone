@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Flex, Text, Button, Image } from '@chakra-ui/react'
 
 import register from '../images/register.jpg'
@@ -6,6 +6,11 @@ import register from '../images/register.jpg'
 import { NavLink as ReactLink } from 'react-router-dom'
 
 const NotFoundPage = () => {
+  
+  useEffect(() => {
+    document.title = 'Page Not Found | BK'
+  }, [])
+  
   return (
     <Flex p='25px 0' w={{base:'100%', lg:'960px'}} m='auto' justifyContent='center' alignItems='center' minH={{base:'calc(100vh - 50px)', lg:'calc(100vh - 79px)'}}>
       <Box

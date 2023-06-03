@@ -38,13 +38,15 @@ const ProductPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
-  
   const getProductData = () => {
     const slug = params["slug"]
     
     const indexProduct = paketList.findIndex((list) => list.slug === slug)
     if (indexProduct !== -1) {
       setProductData(paketList[indexProduct])
+      document.title = paketList[indexProduct].name + ' | BK'
+    } else {
+      document.title = 'Deskripsi Produk | BK'
     }
   }
   

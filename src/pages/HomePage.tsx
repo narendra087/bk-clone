@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CarouselComponent from '../components/CarouselComponent'
 import { Box, Text, Grid, GridItem, Image, Button } from '@chakra-ui/react'
 
@@ -31,6 +31,10 @@ const HomePage = () => {
     {id: 10, name: 'BEVERAGES', slug: 'beverages', image: beverages},
     {id: 11, name: 'KING DEALS', slug: 'king-deals', image: kingdeals},
   ]
+  
+  useEffect(() => {
+    document.title = 'Homepage | BK'
+  }, [])
   
   return (
     <>

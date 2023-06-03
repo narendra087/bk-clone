@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Flex, Text, Button, Input, InputGroup, InputLeftElement, Textarea } from '@chakra-ui/react'
 
 import { NavLink as ReactLink } from 'react-router-dom';
@@ -13,6 +13,10 @@ const DeliveryPage = () => {
   const [guestPhone, setGuestPhone] = useState()
   const [location, setLocation] = useState<LocationType>()
   const [address, setAddress] = useState<string>()
+  
+  useEffect(() => {
+    document.title = 'Delivery | BK'
+  }, [])
   
   const handleChange = (e: any) => {
     const rgx = /^[0-9\b]+$/;

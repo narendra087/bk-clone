@@ -1,7 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Flex, Text, Button, TableContainer, Table, Tbody, Th, Thead, Tr, Td, Image, Input, InputGroup, InputLeftElement, Grid, useDisclosure, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react'
-
-import { NavLink as ReactLink } from 'react-router-dom';
+import { Box,
+  Flex,
+  Text,
+  Button,
+  TableContainer,
+  Table,
+  Tbody,
+  Th,
+  Thead,
+  Tr,
+  Td,
+  Image,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Grid,
+  useDisclosure,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay } from '@chakra-ui/react'
 
 import { useSelector } from 'react-redux';
 
@@ -30,6 +49,10 @@ const PaymentPage = () => {
   
   const [ activePayment, setActivePayment ] = useState('')
   const [ ovoNumber, setOvoNumber ] = useState('')
+  
+  useEffect(() => {
+    document.title = 'Payment | BK'
+  }, [])
   
   useEffect(() => {
     let price = 0
