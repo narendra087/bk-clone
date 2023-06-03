@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Flex, Text, Button, TableContainer, Table, Tbody, Th, Thead, Tr, Td, Image, Input, InputGroup, InputLeftElement, Grid } from '@chakra-ui/react'
+import { Box, Flex, Text, Button, TableContainer, Table, Tbody, Th, Thead, Tr, Td, Image, Input, InputGroup, InputLeftElement, Grid, useDisclosure, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react'
 
 import { NavLink as ReactLink } from 'react-router-dom';
 
@@ -20,6 +20,8 @@ const PaymentPage = () => {
   const cartData = useSelector((state:any) => state.cart.cartData)
   const notesData = useSelector((state:any) => state.cart.notes)
   const guestData = useSelector((state:any) => state.cart.guest)
+  
+  const { isOpen, onOpen, onClose } = useDisclosure()
   
   const deliverySurcharge = 4545
   const [ totalPrice, setTotalPrice ] = useState(0)
@@ -125,7 +127,7 @@ const PaymentPage = () => {
         >
           <Text fontSize={{base:'15px',lg:'13px'}} variant='sans' color='text.subtitle2' mb='20px'>Deliver To {guestData?.address || '-'}</Text>
           <Flex justifyContent='space-between' alignItems={{lg:'center'}} flexDirection={{base:'column',lg:'row'}} gap={{base:'12px',lg:'0'}}>
-            <Button variant='primary-outline' borderColor='primary.main' borderWidth='1px' fontSize='14px'>Apply Kupon / Promo Code</Button>
+            <Button onClick={onOpen} variant='primary-outline' borderColor='primary.main' borderWidth='1px' fontSize='14px'>Apply Kupon / Promo Code</Button>
             <Text variant='bold' fontSize='28px' color='text.subtitle2'>{priceFormatter(totalPrice + deliveryFee + taxFee + deliverySurcharge)}</Text>
           </Flex>
           
@@ -203,6 +205,22 @@ const PaymentPage = () => {
           <Button variant='primary' w='100%' mt='40px'>Place My Order</Button>
         </Box>
       </Flex>
+      
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent w='100%' maxW='500px' p={{base:'32px 24px',lg:'40px'}} borderRadius='12px' mx='15px'>
+          <ModalCloseButton top='-10px' right='-10px' bg='primary.main' color='white' borderRadius='100%' w='36px' h='36px' />
+          <ModalBody p='0'>
+            <Text fontSize='28px' mb='12px' color='text.main'>Use Coupon of Promo Code</Text>
+            <Input
+              name='promocode'
+              fontFamily='Flame-Sans'
+              placeholder='Masukkan Kode Promo'
+              _placeholder={{color:'text.placeholder'}}
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   )
 }
