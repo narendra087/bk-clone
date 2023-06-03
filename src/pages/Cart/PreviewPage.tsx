@@ -121,7 +121,7 @@ const PreviewPage = () => {
           </Box>
         </Box>
         <Box
-          p='25px 30px'
+          p={{base:'20px',lg:'25px 30px'}}
           w={{base:'100%',lg:'30%'}}
         >
           <Flex flexDirection={{lg:'column'}} justifyContent={{base:'space-between',lg:'unset'}} alignItems={{base:'center',lg:'unset'}}>
