@@ -72,7 +72,7 @@ const paketList:PaketType[] = [
   {
     name: 'Paket 1 Pcs Ayam Madura Medium',
     slug: 'paket-1-madura-med',
-    image: 'kc-crispy-1',
+    image: 'madura-1-med',
     price: 35909,
     description: '',
     category: 'special-menu'
@@ -80,24 +80,72 @@ const paketList:PaketType[] = [
   {
     name: 'Paket 2 Pcs Ayam Madura Medium',
     slug: 'paket-2-madura-med',
-    image: 'kc-crispy-1',
-    price: 35909,
+    image: 'madura-2-med',
+    price: 51364,
     description: '',
     category: 'special-menu'
   },
   {
     name: 'King Box Ayam Madura Regular',
     slug: 'paket-kb-madura-reg',
-    image: 'kc-crispy-1',
-    price: 35909,
+    image: 'madura-kb-reg',
+    price: 51364,
     description: '',
     category: 'special-menu'
   },
   {
     name: 'King Box Ayam Madura Large',
     slug: 'paket-kb-madura-large',
-    image: 'kc-crispy-1',
-    price: 35909,
+    image: 'madura-kb-lg',
+    price: 63637,
+    description: '',
+    category: 'special-menu'
+  },
+  {
+    name: 'Paket 5 Pcs Ayam Madura',
+    slug: 'paket-5-madura',
+    image: 'madura-5-pcs',
+    price: 134545,
+    description: '',
+    category: 'special-menu'
+  },
+  {
+    name: 'Paket Rame - Rame Ayam Madura',
+    slug: 'madura-rame',
+    image: 'madura-rame',
+    price: 240000,
+    description: '',
+    category: 'special-menu'
+  },
+  {
+    name: '1 Pc Ayam Madura',
+    slug: 'madura-1-pc',
+    image: 'madura-1-pc',
+    price: 25000,
+    description: '',
+    category: 'special-menu'
+  },
+  {
+    name: '2 Pcs Ayam Madura',
+    slug: 'madura-2-pcs',
+    image: 'madura-2-pcs',
+    price: 45000,
+    description: '',
+    category: 'special-menu'
+  },
+  {
+    name: 'Bumbu Madura BK',
+    slug: 'bumbu-madura',
+    image: 'bumbu-madura',
+    price: 7273,
+    description: '',
+    category: 'special-menu'
+  },
+  {
+    name: 'King Fusion Nastar Crumble',
+    slug: 'king-fusion-nastar-crumble',
+    image: 'nastar-crumble',
+    price: 15000,
     description: '',
     category: 'special-menu'
   },
