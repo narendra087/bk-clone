@@ -76,7 +76,7 @@ const Header = () => {
                 <Text color='text.white' fontSize='25px' lineHeight={1} variant='bold' mt='3px'>Order</Text>
               </Box>
             </Link>
-            <Link as={ReactLink} to='/news-v1'>
+            <Link as={ReactLink} to='/news'>
               <Box p='19px 40px 19px 0'>
                 <Text color='text.subtitle' fontSize='13px' lineHeight={1}>Get Fresh</Text>
                 <Text color='text.white' fontSize='25px' lineHeight={1} variant='bold' mt='3px'>Promotions</Text>
@@ -91,7 +91,7 @@ const Header = () => {
             fontSize='xl'
             lineHeight={1}
             position={{base:'absolute', lg:'relative'}}
-            right={{base:'70px', lg: 'unset'}}
+            right={{base:pathname.indexOf('/cart') === -1 ?'70px' : '15px', lg: 'unset'}}
             top={{base:'13px', lg: 'unset'}}
             textTransform={{lg:'uppercase'}}
           >
@@ -178,7 +178,7 @@ const Header = () => {
                 <Text color='text.subtitle' fontSize='15px' lineHeight={1}>Delivery</Text>
                 <Text color='text.white' fontSize='32px' lineHeight={1} mt='5px'>Order</Text>
               </Box>
-              <Box as={ReactLink} to='/news-v1'>
+              <Box as={ReactLink} to='/news'>
                 <Text color='text.subtitle' fontSize='15px' lineHeight={1}>Get Fresh</Text>
                 <Text color='text.white' fontSize='32px' lineHeight={1} mt='5px'>Promotions</Text>
               </Box>
