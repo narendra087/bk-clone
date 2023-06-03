@@ -95,6 +95,7 @@ const DeliveryPage = () => {
             <Text variant='sans' color='text.subtitle2' fontSize={{base:'12px',lg:'14px'}}>Pastikan pin lokasi sudah sesuai dengan lokasi pengantaran</Text>
             <Box mt='20px' mx={{base:'-20px', lg:'0'}} bg='text.placeholder' height='300px'>
               <MapComponent onChange={handleChangePosition} />
+              <Text display='none'>{location ? location.lat + ' & ' + location.lng : ''}</Text>
             </Box>
           </Box>
           

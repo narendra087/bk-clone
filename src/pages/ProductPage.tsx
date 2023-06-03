@@ -56,7 +56,6 @@ const ProductPage = () => {
       quantity: Number(quantity.value)
     }
     
-    console.log(tempProduct)
     dispatch(addCart(tempProduct))
   }
   

@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
 
 import { LocationType } from '../types/global';
@@ -38,6 +38,7 @@ const MapComponent = ({ onChange }:ComponentProps) => {
         }
       },
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
   

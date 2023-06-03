@@ -27,7 +27,6 @@ const MenuPage = () => {
     
     if (params["*"]) {
       const title = capitalizeFirstLetter(params['*']?.split('-').join(' '))
-      console.log(title)
       document.title = title + ' | BK'
     } else {
       document.title = 'Menu | BK'
