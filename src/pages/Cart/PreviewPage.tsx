@@ -53,7 +53,7 @@ const PreviewPage = () => {
   }, [cartData])
   
   return (
-    <Box width={{base: '100%', lg: '960px'}} m='40px auto' p={{base: '0 15px', sm: '0 20px', lg: '0'}}>
+    <Box width={{base: '100%', lg: '960px'}} m={{base:'20px auto',lg:'40px auto'}} p={{base: '0 15px', sm: '0 20px', lg: '0'}}>
       <StepComponent />
       
       <Flex
@@ -62,11 +62,12 @@ const PreviewPage = () => {
         w='100%'
         background='white'
         mt='20px'
+        flexDirection={{base:'column',lg:'row'}}
       >
         <Box
           borderRight={{lg:'1px solid #E0E0E0'}}
           borderBottom={{base:'1px solid #E0E0E0', lg:'none'}}
-          p='25px 30px'
+          p={{base:'20px',lg:'25px 30px'}}
           w={{base:'100%',lg:'70%'}}
           textAlign='center'
         >
@@ -74,9 +75,18 @@ const PreviewPage = () => {
             <Table variant='simple'>
               <Thead>
                 <Tr>
-                  <Th textTransform='capitalize' fontFamily='Flame-Regular' color='text.subtitle2' fontSize='13px' p='0 0 15px'>Menu Item</Th>
-                  <Th textTransform='capitalize' fontFamily='Flame-Regular' color='text.subtitle2' fontSize='13px' p='0 0 15px'>Quantity</Th>
-                  <Th textTransform='capitalize' fontFamily='Flame-Regular' color='text.subtitle2' fontSize='13px' p='0 0 15px' isNumeric>Subtotal</Th>
+                  <Th
+                    textTransform='capitalize' fontFamily='Flame-Regular'
+                    color='text.subtitle2' fontSize='13px' p='0 0 15px'
+                  >Menu Item</Th>
+                  <Th
+                    textTransform='capitalize' fontFamily='Flame-Regular'
+                    color='text.subtitle2' fontSize='13px' p='0 0 15px'
+                  >Quantity</Th>
+                  <Th
+                    textTransform='capitalize' fontFamily='Flame-Regular'
+                    color='text.subtitle2' fontSize='13px' p='0 0 15px' isNumeric
+                  >Subtotal</Th>
                 </Tr>
               </Thead>
               <Tbody>
@@ -89,7 +99,7 @@ const PreviewPage = () => {
           
           <Text
             as={ReactLink} to='/menus'
-            variant='sans' fontSize='18px'
+            variant='sans' fontSize={{base:'12px',lg:'18px'}}
             m='25px 0 15px' color='primary.main'
             display='block' textAlign='left'
             w='max-content'
@@ -114,11 +124,13 @@ const PreviewPage = () => {
           p='25px 30px'
           w={{base:'100%',lg:'30%'}}
         >
-          <Flex flexDirection={{lg:'column'}}>
-            <Text fontSize='13px' variant='sans' color='text.subtitle2'>Order Subtotal*</Text>
-            <Text fontSize='28px' color='text.subtitle2'>{priceFormatter(totalPrice)}</Text>
+          <Flex flexDirection={{lg:'column'}} justifyContent={{base:'space-between',lg:'unset'}} alignItems={{base:'center',lg:'unset'}}>
+            <Text fontSize={{base:'15px',lg:'13px'}} variant='sans' color='text.subtitle2'>Order Subtotal*</Text>
+            <Text fontSize={{base:'23px',lg:'28px'}} color='text.subtitle2'>{priceFormatter(totalPrice)}</Text>
           </Flex>
-          <Text fontSize='11px' variant='sans' color='text.secondary' m='15px 0 30px'>* Price might change due to your delivery location.</Text>
+          <Text fontSize={{base:'15px',lg:'11px'}} variant='sans' color='text.secondary' m={{base:'15px 0 20px',lg:'15px 0 30px'}}>
+            * Price might change due to your delivery location.
+          </Text>
           
           <Button as={ReactLink} to='/login' variant='primary' w='100%'>Login To Order</Button>
           <Button as={ReactLink} to='/cart/delivery' variant='primary-outline' w='100%' mt='5px'>Continue as Guest</Button>
