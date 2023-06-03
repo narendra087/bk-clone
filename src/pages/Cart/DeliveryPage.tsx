@@ -26,7 +26,7 @@ const DeliveryPage = () => {
   }
   
   return (
-    <Box width={{base: '100%', lg: '960px'}} m='40px auto' p={{base: '0 15px', sm: '0 20px', lg: '0'}}>
+    <Box width={{base: '100%', lg: '960px'}} m={{base:'20px auto',lg:'40px auto'}} p={{base: '0 15px', sm: '0 20px', lg: '0'}}>
       <StepComponent />
       
       <Flex
