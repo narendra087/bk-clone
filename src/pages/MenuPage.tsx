@@ -38,11 +38,16 @@ const MenuPage = () => {
   return (
     <Box
       backgroundImage='url(/background.jpg) !important'
-      backgroundPosition='center'
+      backgroundPosition={{lg:'center'}}
       backgroundRepeat='no-repeat'
       backgroundAttachment='fixed'
       backgroundSize='cover'
       minH='100vh'
+      w='100%'
+      top={{base:'50px', lg:'0'}}
+      mt={{base:'-50px', lg:'0'}}
+      pb={{base:'10px', lg:'0'}}
+      position='relative'
     >
       <Flex p='25px 15px 40px' w={{base:'100%', lg:'990px'}} m='0 auto' justifyContent='center'>
         <Flex flexDirection={{base: 'column', lg:'row'}} gap={{base:'20px', lg:'30px'}} w='100%' justifyContent='space-between'>

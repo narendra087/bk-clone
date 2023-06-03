@@ -37,11 +37,23 @@ const HomePage = () => {
   }, [])
   
   return (
-    <>
+    <Box
+      backgroundImage='url(/background.jpg) !important'
+      backgroundPosition={{lg:'center'}}
+      backgroundRepeat='no-repeat'
+      backgroundAttachment='fixed'
+      backgroundSize='cover'
+      minH='100vh'
+      w='100%'
+      top={{base:'50px', lg:'0'}}
+      mt={{base:'-50px', lg:'0'}}
+      pb={{base:'10px', lg:'0'}}
+      position='relative'
+    >
       <CarouselComponent />
       <Box width={{base: '100%', lg: '960px'}} m='40px auto' p={{base: '0 15px', sm: '0 20px', lg: '0'}}>
         <Text fontSize='32px' color='text.main' variant='bold' textAlign='center' mb='30px'>Our Menus</Text>
-        <Grid templateColumns={{base: '1fr', sm: 'repeat(2, 1fr)', lg:'repeat(3, 1fr)'}} gap='15px'>
+        <Grid templateColumns={{base: 'repeat(2, 1fr)', lg:'repeat(3, 1fr)'}} gap='15px'>
           {
             arrayItem.map(item => (
               <GridItem
@@ -50,21 +62,21 @@ const HomePage = () => {
                 bg='#FFF'
                 key={item.id}
                 boxShadow='2px 2px 15px -4px #6b6b6b'
-                p='20px'
+                p={{base:'10px',lg:'20px'}}
                 w='100%'
                 borderRadius='10px'
               >
                 <Image src={item.image} w='100%' />
-                <Grid templateColumns='repeat(2, 1fr)' gap='5px' mt='10px'>
-                  <Text fontSize='21px' variant='bold' color='text.main'>{item.name}</Text>
-                  <Button w='100%' variant='primary'>Order</Button>
+                <Grid templateColumns={{base:'1fr',lg:'repeat(2, 1fr)'}} gap='5px' mt='10px'>
+                  <Text fontSize={{base:'16px',sm:'21px'}} variant='bold' color='text.main' textAlign={{base:'center',lg:'left'}}>{item.name}</Text>
+                  <Button display={{base:'none',lg:'block'}} w='100%' variant='primary'>Order</Button>
                 </Grid>
               </GridItem>
             ))
           }
         </Grid>
       </Box>
-    </>
+    </Box>
   )
 }
 
